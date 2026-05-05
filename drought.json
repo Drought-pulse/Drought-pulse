@@ -1,1 +1,8 @@
-
+{
+  "months": ["Jan", "Feb", "Mar"],
+  "spi": [0.2, -0.5, -1.0],
+  "locations": [
+    {"name": "Delhi", "lat": 28.6, "lon": 77.2, "spi": -1.2},
+    {"name": "Mumbai", "lat": 19.0, "lon": 72.8, "spi": -0.6}
+  ]
+}
