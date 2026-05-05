@@ -5,19 +5,55 @@
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
 
-<h1>Drought Pulse Dashboard</h1>
+<header class="navbar">
+  <h2>💧 Drought Pulse</h2>
+  <nav>
+    <span>Dashboard</span>
+    <span>Live Map</span>
+    <span>AI Assistant</span>
+  </nav>
+</header>
 
-<div id="map" style="height:300px;"></div>
+<div class="container">
 
-<canvas id="chart"></canvas>
+  <!-- ALERT -->
+  <div class="alert-box">
+    <h3>⚠ DROUGHT CRITICAL WARNING</h3>
+    <p>Critical drought conditions detected. Reduce water usage.</p>
+  </div>
 
-<ul id="alerts"></ul>
+  <!-- STATS -->
+  <div class="stats">
+    <div class="card">🌡 38°C<br><span>Temp</span></div>
+    <div class="card">💧 20%<br><span>Humidity</span></div>
+    <div class="card">🌬 12 km/h<br><span>Wind</span></div>
+    <div class="card">🌱 15%<br><span>Moisture</span></div>
+  </div>
+
+  <!-- MAP -->
+  <div class="card full">
+    <h3>Live Drought Map</h3>
+    <div id="map"></div>
+  </div>
+
+  <!-- CHART -->
+  <div class="card full">
+    <h3>SPI Trend</h3>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <!-- ALERT LIST -->
+  <div class="card full">
+    <h3>Alerts</h3>
+    <ul id="alerts"></ul>
+  </div>
+
+</div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
