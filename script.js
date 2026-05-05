@@ -1,3 +1,13 @@
+console.log("Script loaded");
+
+// ===== CHECK ELEMENTS =====
+const mapDiv = document.getElementById('map');
+const chartCanvas = document.getElementById('chart');
+const alertBox = document.getElementById('alerts');
+
+if (!mapDiv || !chartCanvas || !alertBox) {
+  document.body.innerHTML = "<h2 style='color:red'>HTML elements missing</h2>";
+}
 
 // ===== MAP =====
 var map = L.map('map').setView([22.5, 80], 5);
@@ -7,47 +17,36 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 // ===== LOAD DATA =====
 fetch('data/drought.json')
   .then(res => {
-    if (!res.ok) {
-      throw new Error("JSON not found");
-    }
+    console.log("Fetch response:", res.status);
     return res.json();
   })
   .then(data => {
+    console.log("Data loaded:", data);
 
     // ===== CHART =====
-    new Chart(document.getElementById('chart'), {
+    new Chart(chartCanvas, {
       type: 'line',
       data: {
         labels: data.months,
         datasets: [{
           label: 'SPI',
-          data: data.spi,
-          borderWidth: 2
+          data: data.spi
         }]
       }
     });
 
-    // ===== ALERTS =====
-    const alertBox = document.getElementById("alerts");
-
+    // ===== MAP + ALERTS =====
     data.locations.forEach(loc => {
-      let alert = "Normal";
-
-      if (loc.spi < -1) alert = "Severe Drought";
-      else if (loc.spi < -0.5) alert = "Moderate Drought";
-
       L.circleMarker([loc.lat, loc.lon]).addTo(map)
-        .bindPopup(loc.name + " - " + alert);
+        .bindPopup(loc.name);
 
-      if (alert !== "Normal") {
-        let li = document.createElement("li");
-        li.innerText = loc.name + ": " + alert;
-        alertBox.appendChild(li);
-      }
+      let li = document.createElement("li");
+      li.innerText = loc.name + " SPI: " + loc.spi;
+      alertBox.appendChild(li);
     });
 
   })
   .catch(err => {
     console.error("ERROR:", err);
-    document.body.innerHTML = "<h2 style='color:red'>Error loading data. Check JSON path.</h2>";
+    document.body.innerHTML = "<h2 style='color:red'>Error loading JSON</h2>";
   });
