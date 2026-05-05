@@ -1,62 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Drought Pulse</title>
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
-
-<body>
-
-<header class="navbar">
-  <h2>💧 Drought Pulse</h2>
-  <nav>
-    <span>Dashboard</span>
-    <span>Live Map</span>
-    <span>AI Assistant</span>
-  </nav>
-</header>
-
-<div class="container">
-
-  <!-- ALERT -->
-  <div class="alert-box">
-    <h3>⚠ DROUGHT CRITICAL WARNING</h3>
-    <p>Critical drought conditions detected. Reduce water usage.</p>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="card">🌡 38°C<br><span>Temp</span></div>
-    <div class="card">💧 20%<br><span>Humidity</span></div>
-    <div class="card">🌬 12 km/h<br><span>Wind</span></div>
-    <div class="card">🌱 15%<br><span>Moisture</span></div>
-  </div>
-
-  <!-- MAP -->
-  <div class="card full">
-    <h3>Live Drought Map</h3>
-    <div id="map"></div>
-  </div>
-
-  <!-- CHART -->
-  <div class="card full">
-    <h3>SPI Trend</h3>
-    <canvas id="chart"></canvas>
-  </div>
-
-  <!-- ALERT LIST -->
-  <div class="card full">
-    <h3>Alerts</h3>
-    <ul id="alerts"></ul>
-  </div>
-
-</div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="script.js"></script>
-
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
