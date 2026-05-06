@@ -9,6 +9,11 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
+    "devDependencies": {
+  "tailwindcss": "^3.x",
+  "postcss": "^8.x",
+  "autoprefixer": "^10.x"
+}
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
